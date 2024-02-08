@@ -8,6 +8,22 @@
     @vite('resources/js/app.js')
 </head>
 <body>
-    <h1>Welcome</h1>
+    <header>
+        <h1>Welcome</h1>
+    </header>
+    <main>
+        <ul>
+            @forelse($trains as $train)
+            <li>
+                {{$train->company}}
+            </li>
+
+            @empty
+            <p>There are no available trains...</p>
+
+            @endforelse
+
+        </ul>
+    </main>
 </body>
 </html>
