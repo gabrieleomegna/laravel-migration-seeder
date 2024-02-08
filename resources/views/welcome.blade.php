@@ -15,7 +15,15 @@
         <ul>
             @forelse($trains as $train)
             <li>
-                {{$train->company}}
+                <h5>
+                    {{ $train->company }}: From {{ $train->departure_station }} to {{ $train->arrival_station }}
+                </h5>
+                <p>
+                    {{ $train->departure_time }} -> {{ $train->arrival_time }} <br>
+                    {{ $train->train_code }}, carriages: {{ $train->no_carriages }}, <br>
+                    {{ ($train->on_time) ? 'on time' : 'delayed' }}, <br>
+                    {{ ($train->cancelled) ? 'CANCELLED' : '' }} <br><br>
+                </p>
             </li>
 
             @empty
